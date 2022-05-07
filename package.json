@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "deploy": "gh-pages -d build",
+    "deploy": "rollup -c && node node_modules/gh-pages/bin/gh-pages.js",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public -s --no-clear"
