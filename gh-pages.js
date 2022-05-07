@@ -10,7 +10,7 @@ ghpages.publish(
 			email: 'davidcallizaya@gmail.com'
 		}
 	},
-	() => {
-		console.log('Deploy Complete!')
+	(err) => {
+		console.log('Deploy Complete!', err)
 	}
 )
