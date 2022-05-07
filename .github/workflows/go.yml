@@ -18,6 +18,6 @@ jobs:
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git remote -v
           npm install
-          npm run deploy -- -u "David Callizaya <davidcallizaya@gmail.com>"
+          npm run deploy -- -u "David Callizaya <davidcallizaya@gmail.com>" -d public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
