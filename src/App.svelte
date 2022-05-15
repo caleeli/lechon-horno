@@ -20,7 +20,7 @@
 </div>
 
 <div>
-    <button>RESERVA YA!</button>
+    <a class="button" href="#reservar">RESERVA YA!</a>
     <div>
         quedan {dayjs(presale_limit).fromNow(true)}
     </div>
