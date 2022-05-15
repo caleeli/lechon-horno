@@ -21,3 +21,4 @@ jobs:
           npm run deploy -- -u "David Callizaya <davidcallizaya@gmail.com>" -d public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          API_BASE: ${{ secrets.API_BASE }}

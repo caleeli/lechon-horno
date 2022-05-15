@@ -19,6 +19,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@rollup/plugin-replace": "^4.0.0",
+    "dayjs": "^1.11.2",
+    "dotenv": "^16.0.1",
     "gh-pages": "^3.2.3",
     "sirv-cli": "^2.0.0",
     "svelte-router-spa": "^6.0.3"
