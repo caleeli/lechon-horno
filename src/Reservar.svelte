@@ -43,7 +43,7 @@
 			<td>1 porci&oacute;n de ocas</td>
 		</tr>
 		<tr>
-			<td>1 postre</td>
+			<td>1 postre (pl&aacute;tano al horno)</td>
 		</tr>
 		<tr>
 			<td>1 porci&oacute;n de llajua</td>
