@@ -5,9 +5,11 @@
 	--color-primary: #0B1354;
 	--font-shadow-color: #000000;
 	--white: #ffffff;
+	--gray: #ddd;
 }
 
-button, .button {
+button,
+.button {
 	display: inline-block;
 	background: var(--button-color);
 	border: none;
@@ -20,7 +22,8 @@ button, .button {
 	transition: transform 1s;
 }
 
-button:active, .button:active {
+button:active,
+.button:active {
 	transform: scale(.85);
 }
 
@@ -92,6 +95,12 @@ h3 {
 	margin: 1rem 0px;
 }
 
+h4 {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin: 0px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -109,15 +118,26 @@ a {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	border-radius: 10rem;
+	border: 1px solid var(--color-primary);
+}
+
+.plus-minus-control input {
+	width: 2rem;
+	font-size: 1.25rem;
+	padding: 0.15rem 0rem;
+	margin: 0rem;
+	text-align: center;
+	border: none;
 }
 
 .plus-minus {
-	font-size: 2rem;
+	font-size: 1.25rem;
 	font-weight: bold;
 	font-family: monospace;
-	color: var(--color-primary);
+	color: var(--color-background);
 	cursor: pointer;
-	background-color: var(--color-background);
+	background-color: var(--white);
 	border-radius: 10rem;
 	padding: 0rem;
 	width: 2rem;
@@ -125,7 +145,9 @@ a {
 	text-align: center;
 	line-height: 1.9rem;
 }
-
+.plus-minus.disabled {
+	opacity: 0.2;
+}
 .plus-minus:active {
 	transform: scale(.85);
 }
@@ -189,6 +211,7 @@ form img {
 	box-shadow: 0 0 10px black;
 	margin: 2rem 1rem;
 }
+
 .photo img {
 	width: 100%;
 	margin: -4px 0px;
@@ -211,16 +234,19 @@ form img {
 @media only screen and (min-width:769px) {
 	body {
 		overflow-y: hidden;
-		overflow-x: hidden;	
+		overflow-x: hidden;
 	}
+
 	main {
 		display: flex;
 		flex-direction: row;
 	}
+
 	.logo-container {
 		width: 50%;
 		flex-grow: 1;
 	}
+
 	.main-container {
 		flex-grow: 1;
 		overflow-y: auto;
@@ -233,4 +259,32 @@ form img {
 		grid-row-gap: 0px;
 		padding: 0rem 3rem;
 	}
+}
+.llajua {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border: 1px solid var(--color-primary);
+	border-radius: 10rem;
+	overflow: hidden;
+}
+.llajua .picante-1 {
+	background-color: #ffd054;
+	flex-grow: 1;
+	text-align: center;
+}
+.llajua .picante-2 {
+	background-color: #ff8e52;
+	flex-grow: 1;
+	text-align: center;
+}
+.llajua .picante-3 {
+	background-color: #fe6e4b;
+	flex-grow: 1;
+	text-align: center;
+}
+.llajua .picante-4 {
+	background-color: #c1521d;
+	flex-grow: 1;
+	text-align: center;
 }
