@@ -33,7 +33,7 @@
 		if (choclo > 0) text += `${choclo} choclo${choclo > 1 ? "s":""}\n`;
 		if (bebida > 0) text += `${bebida} vaso${bebida > 1 ? "s":""} de mocochinchi\n`;
 		if (llajua_extra > 0) text += `${llajua_extra} porcion${llajua_extra > 1 ? "es":""} extra de llajua ${niveles_llajua[picante]}\n`;
-		text += `📍 Envialo a: ${address}\n`;
+		text += `📍 Enviarlo a: ${address}\n`;
 		wa_message = `https://api.whatsapp.com/send?phone=${encodeURIComponent(pa_phone)}&text=${encodeURIComponent(text)}`;
 		validation_msg = "";
 		if (!address) {
