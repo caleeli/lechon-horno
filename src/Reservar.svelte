@@ -1,7 +1,11 @@
 <script>
 	import AddRemove from "./AddRemove.svelte";
+	import { onMount } from 'svelte';
 	let name;
+	let address;
 	let phone;
+	let input_name;
+	let input_address;
 	let lechon = 1;
 	let papas = 1;
 	let ocas = 1;
@@ -22,25 +26,38 @@
 	const pa_phone = "59179144641";
 	let wa_message = "";
 	$: {
-		let text = `😋 Hola soy: ${name}\n🍽️ Pedido:\n`;
+		let text = `😋 Hola soy: ${name}\n🍽️ Quisiera hacer este pedido:\n`;
 		text += `${lechon} plato${lechon > 1 ? "s":""} de lechon\n`;
 		if (pollo > 0) text += `${pollo} porcion${pollo > 1 ? "es":""} de pollo\n`;
 		if (ensalada > 0) text += `${ensalada} porcion${ensalada > 1 ? "es":""} de ensalada\n`;
 		if (choclo > 0) text += `${choclo} choclo${choclo > 1 ? "s":""}\n`;
 		if (bebida > 0) text += `${bebida} vaso${bebida > 1 ? "s":""} de mocochinchi\n`;
 		if (llajua_extra > 0) text += `${llajua_extra} porcion${llajua_extra > 1 ? "es":""} extra de llajua ${niveles_llajua[picante]}\n`;
+		text += `📍 Envialo a: ${address}\n`;
 		wa_message = `https://api.whatsapp.com/send?phone=${encodeURIComponent(pa_phone)}&text=${encodeURIComponent(text)}`;
 		validation_msg = "";
+		if (!address) {
+			validation_msg= "Por favor, ingresa tu direccion";
+		}
 		if (!name) {
 			validation_msg= "Por favor, ingresa tu nombre";
 		}
 	}
+	onMount(async () => {
+		if (input_name && input_name.value !== name) {
+			name = input_name.value;
+		}
+		if (input_address && input_address.value !== address) {
+			address = input_address.value;
+		}
+	});
 </script>
 
 <form>
 	<h2>Reserva</h2>
 	<hr />
-	<input bind:value={name} name="name" placeholder="Nombre" type="text" required />
+	<input bind:this={input_name} bind:value={name} name="name" placeholder="Nombre" type="text" required />
+	<input bind:this={input_address} bind:value={address} name="address" placeholder="Direccion" type="text" required />
 	<table>
 		<tr>
 			<td>
