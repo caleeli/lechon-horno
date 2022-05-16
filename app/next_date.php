@@ -1,5 +1,8 @@
 <?php
 
+// set timezone to la paz
+date_default_timezone_set('America/La_Paz');
+
 // get next friday date
 function get_next_friday() {
     $date = date('Y-m-d');
