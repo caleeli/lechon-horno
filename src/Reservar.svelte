@@ -1,5 +1,6 @@
 <script>
 	import AddRemove from "./AddRemove.svelte";
+    import dayjs from "dayjs";
 	import { onMount } from 'svelte';
 	let name;
 	let address;
@@ -23,6 +24,8 @@
 		3: "picante",
 		4: "extra picante",
 	};
+    let presale_limit = "";
+    let puede_reservar = true;
 	const pa_phone = "59179144641";
 	let wa_message = "";
 	$: {
@@ -51,9 +54,17 @@
 			address = input_address.value;
 		}
 	});
+	setInterval(() => {
+		if (window.presale_limit) {
+			presale_limit = window.presale_limit;
+			const diff_date = dayjs().diff(presale_limit);
+			puede_reservar = diff_date < 0;
+		}
+	}, 5000);
 </script>
 
 <form>
+{#if puede_reservar}
 	<h2>Reserva</h2>
 	<hr />
 	<input bind:this={input_name} bind:value={name} name="name" placeholder="Nombre" type="text" required />
@@ -153,5 +164,10 @@
 		<a href={wa_message} class="button button-white" target="_blank" rel="nofollow"> Reservar </a>
 	{/if}
 	<small class="error">{validation_msg}</small>
+{:else}
+	El periodo de reserva ha terminado.<br>
+	Puedes reservar la siguiente semana.<br>
+	Gracias por su comprensi&oacute;n. 😇
+{/if}
 </form>
 65153357
