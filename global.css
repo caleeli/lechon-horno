@@ -288,3 +288,7 @@ form img {
 	flex-grow: 1;
 	text-align: center;
 }
+.error {
+	color: red;
+	display: block;
+}
