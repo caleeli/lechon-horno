@@ -6,7 +6,7 @@
     "deploy": "rollup -c && node node_modules/gh-pages/bin/gh-pages.js",
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public -s --no-clear"
+    "start": "sirv public -s --no-clear --host"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
