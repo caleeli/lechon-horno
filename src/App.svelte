@@ -24,14 +24,14 @@
 </div>
 
 <div>
-    entrega: <b>{dayjs(next_friday).format('dddd DD-MMMM')}</b><br>
-    reserva hasta: <b>{dayjs(presale_limit).format('dddd DD-MMMM')}</b>
+    entrega: <b>{!next_friday ? "..." : dayjs(next_friday).format('dddd DD-MMMM')}</b><br>
+    reserva hasta: <b>{!presale_limit ? "..." : dayjs(presale_limit).format('dddd DD-MMMM')}</b>
 </div>
 
 <div>
     <a class="button" href="#reservar">RESERVA YA!</a>
     <div>
-        quedan {dayjs(presale_limit).fromNow(true)}
+        quedan {!presale_limit ? "..." : dayjs(presale_limit).fromNow(true)}
     </div>
 </div>
 {:else}
@@ -40,7 +40,7 @@
 </div>
 
 <div>
-    entrega: <b>{dayjs(next_friday).format('dddd DD-MMMM')}</b><br>
+    entrega: <b>{!next_friday ? "..." : dayjs(next_friday).format('dddd DD-MMMM')}</b><br>
 </div>
 
 <div>
