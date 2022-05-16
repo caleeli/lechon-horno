@@ -18,7 +18,7 @@
 		3: "picante",
 		4: "extra picante",
 	};
-	const pa_phone = "59165153357";
+	const pa_phone = "59179144641";
 	let wa_message = "";
 	$: {
 		let text = `😋 Hola soy: ${name}\n📱 ${phone}\n🍽️ Pedido:\n`;
@@ -28,15 +28,14 @@
 		if (choclo > 0) text += `${choclo} choclo${choclo > 1 ? "s":""}\n`;
 		if (bebida > 0) text += `${bebida} vaso${bebida > 1 ? "s":""} de mocochinchi\n`;
 		if (llajua_extra > 0) text += `${llajua_extra} porcion${llajua_extra > 1 ? "es":""} extra de llajua ${niveles_llajua[picante]}\n`;
-		wa_message = `https://wa.me/${pa_phone}?text=${encodeURIComponent(text)}`;
+		wa_message = `https://api.whatsapp.com/send?phone=${encodeURIComponent(pa_phone)}&text=${encodeURIComponent(text)}`;
 	}
 </script>
 
 <form>
 	<h2>Reserva</h2>
 	<hr />
-	<input bind:value={name} name="name" placeholder="Nombre" type="text" />
-	<input bind:value={phone} name="phone" type="phone" placeholder="Tel&eacute;fono" />
+	<input bind:value={name} name="name" placeholder="Nombre" type="text" required />
 	<table>
 		<tr>
 			<td>
@@ -127,3 +126,4 @@
 	<br />
 	<a href={wa_message} class="button button-white" target="_blank" rel="nofollow"> Reservar </a>
 </form>
+65153357
