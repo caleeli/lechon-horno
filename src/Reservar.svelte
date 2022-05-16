@@ -18,7 +18,7 @@
 		3: "picante",
 		4: "extra picante",
 	};
-	const pa_phone = "591791446";
+	const pa_phone = "59165153357";
 	let wa_message = "";
 	$: {
 		let text = `😋 Hola soy: ${name}\n📱 ${phone}\n🍽️ Pedido:\n`;
@@ -125,5 +125,5 @@
 		{#if llajua_extra > 0}<li>{llajua_extra} porcion{llajua_extra > 1 ? "es":""} extra de llajua {niveles_llajua[picante]}</li>{/if}
 	</ul>
 	<br />
-	<a href={wa_message} class="button button-white" target="_blank"> Reservar </a>
+	<a href={wa_message} class="button button-white" target="_blank" rel="nofollow"> Reservar </a>
 </form>
