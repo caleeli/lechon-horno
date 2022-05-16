@@ -1,5 +1,7 @@
 <script>
 	import AddRemove from "./AddRemove.svelte";
+	let name;
+	let phone;
 	let lechon = 1;
 	let papas = 1;
 	let ocas = 1;
@@ -15,14 +17,26 @@
 		2: "normal",
 		3: "picante",
 		4: "extra picante",
+	};
+	const pa_phone = "591791446";
+	let wa_message = "";
+	$: {
+		let text = `😋 Hola soy: ${name}\n📱 ${phone}\n🍽️ Pedido:\n`;
+		text += `${lechon} plato${lechon > 1 ? "s":""} de lechon\n`;
+		if (pollo > 0) text += `${pollo} porcion${pollo > 1 ? "es":""} de pollo\n`;
+		if (ensalada > 0) text += `${ensalada} porcion${ensalada > 1 ? "es":""} de ensalada\n`;
+		if (choclo > 0) text += `${choclo} choclo${choclo > 1 ? "s":""}\n`;
+		if (bebida > 0) text += `${bebida} vaso${bebida > 1 ? "s":""} de mocochinchi\n`;
+		if (llajua_extra > 0) text += `${llajua_extra} porcion${llajua_extra > 1 ? "es":""} extra de llajua ${niveles_llajua[picante]}\n`;
+		wa_message = `https://wa.me/${pa_phone}?text=${encodeURIComponent(text)}`;
 	}
 </script>
 
 <form>
 	<h2>Reserva</h2>
 	<hr />
-	<input name="name" placeholder="Nombre" type="text" />
-	<input name="phone" type="phone" placeholder="Tel&eacute;fono" />
+	<input bind:value={name} name="name" placeholder="Nombre" type="text" />
+	<input bind:value={phone} name="phone" type="phone" placeholder="Tel&eacute;fono" />
 	<table>
 		<tr>
 			<td>
@@ -111,5 +125,5 @@
 		{#if llajua_extra > 0}<li>{llajua_extra} porcion{llajua_extra > 1 ? "es":""} extra de llajua {niveles_llajua[picante]}</li>{/if}
 	</ul>
 	<br />
-	<button type="submit" class="button-white"> Reservar </button>
+	<a href={wa_message} class="button button-white" target="_blank"> Reservar </a>
 </form>
