@@ -25,8 +25,8 @@
 
 <div class="plus-minus-control">
 	<span
-		class={`plus-minus ${disabled || value <= min ? "disabled" : ""}`}
-		on:click={reduce}>-</span
+		class={`plus-minus ${disabled || value >= max ? "disabled" : ""}`}
+		on:click={increase}>+</span
 	>
 	<input
 		bind:value
@@ -37,7 +37,7 @@
 		on:click={rotate}
 	/>
 	<span
-		class={`plus-minus ${disabled || value >= max ? "disabled" : ""}`}
-		on:click={increase}>+</span
+		class={`plus-minus ${disabled || value <= min ? "disabled" : ""}`}
+		on:click={reduce}>-</span
 	>
 </div>

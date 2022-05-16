@@ -12,6 +12,7 @@
 	let bebida = 0;
 	let llajua_extra = 0;
 	let picante =2;
+	let validation_msg = "";
 	let niveles_llajua = {
 		1: "suave",
 		2: "normal",
@@ -21,7 +22,7 @@
 	const pa_phone = "59179144641";
 	let wa_message = "";
 	$: {
-		let text = `😋 Hola soy: ${name}\n📱 ${phone}\n🍽️ Pedido:\n`;
+		let text = `😋 Hola soy: ${name}\n🍽️ Pedido:\n`;
 		text += `${lechon} plato${lechon > 1 ? "s":""} de lechon\n`;
 		if (pollo > 0) text += `${pollo} porcion${pollo > 1 ? "es":""} de pollo\n`;
 		if (ensalada > 0) text += `${ensalada} porcion${ensalada > 1 ? "es":""} de ensalada\n`;
@@ -29,6 +30,10 @@
 		if (bebida > 0) text += `${bebida} vaso${bebida > 1 ? "s":""} de mocochinchi\n`;
 		if (llajua_extra > 0) text += `${llajua_extra} porcion${llajua_extra > 1 ? "es":""} extra de llajua ${niveles_llajua[picante]}\n`;
 		wa_message = `https://api.whatsapp.com/send?phone=${encodeURIComponent(pa_phone)}&text=${encodeURIComponent(text)}`;
+		validation_msg = "";
+		if (!name) {
+			validation_msg= "Por favor, ingresa tu nombre";
+		}
 	}
 </script>
 
@@ -63,15 +68,6 @@
 		</tr>
 	</table>
 
-	<br>
-	<i>nivel de picante de la llajua:</i>
-	<div class="llajua">
-		<label class="picante-1"><input type="radio" bind:group={picante} name="picante" value={1} />{niveles_llajua[1]}</label>
-		<label class="picante-2"><input type="radio" bind:group={picante} name="picante" value={2} />{niveles_llajua[2]}</label>
-		<label class="picante-3"><input type="radio" bind:group={picante} name="picante" value={3} />{niveles_llajua[3]}</label>
-		<label class="picante-4"><input type="radio" bind:group={picante} name="picante" value={4} />{niveles_llajua[4]}</label>
-	</div>
-	
 	<h4>Extras:</h4>
 	<table>
 		<tr>
@@ -105,7 +101,17 @@
 			<td>porci&oacute;n extra de llajua (1 Bs)</td>
 		</tr>
 	</table>
-
+	<!--
+	<br>
+	<i>nivel de picante de la llajua:</i>
+	<div class="llajua">
+		<label class="picante-1"><input type="radio" bind:group={picante} name="picante" value={1} />{niveles_llajua[1]}</label>
+		<label class="picante-2"><input type="radio" bind:group={picante} name="picante" value={2} />{niveles_llajua[2]}</label>
+		<label class="picante-3"><input type="radio" bind:group={picante} name="picante" value={3} />{niveles_llajua[3]}</label>
+		<label class="picante-4"><input type="radio" bind:group={picante} name="picante" value={4} />{niveles_llajua[4]}</label>
+	</div>
+	-->
+	<br>
 	<h4>
 		Costo: {25 * lechon +
 			10 * pollo +
@@ -124,6 +130,11 @@
 		{#if llajua_extra > 0}<li>{llajua_extra} porcion{llajua_extra > 1 ? "es":""} extra de llajua {niveles_llajua[picante]}</li>{/if}
 	</ul>
 	<br />
-	<a href={wa_message} class="button button-white" target="_blank" rel="nofollow"> Reservar </a>
+	{#if validation_msg}
+		<a class="button button-white" target="_blank" rel="nofollow"> Reservar </a>
+	{:else}
+		<a href={wa_message} class="button button-white" target="_blank" rel="nofollow"> Reservar </a>
+	{/if}
+	<small class="error">{validation_msg}</small>
 </form>
 65153357
