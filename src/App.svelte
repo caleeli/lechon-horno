@@ -20,6 +20,7 @@
 
 {#if diff_date < 0}
 <div>
+    <img src="images/dia-de-la-madre_088.jpg" alt="logo" style="width:100%"/>
     <img src="images/abierto.svg" alt="logo" class="logo" />
 </div>
 
