@@ -1,6 +1,6 @@
 /* define colors */
 :root {
-	--color-background: #facdbc;
+	--color-background: #fcb8cf;
 	--button-color: #f765a3;
 	--color-primary: #0B1354;
 	--font-shadow-color: #000000;
@@ -223,7 +223,7 @@ form img {
 	text-align: center;
 	width: 80%;
 	margin-left: 10%;
-	top: 40%;
+	bottom: 2rem;
 	display: inline-block;
 	font-size: 1.5rem;
 	color: white;
@@ -245,6 +245,7 @@ form img {
 	.logo-container {
 		width: 50%;
 		flex-grow: 1;
+		overflow: hidden;
 	}
 
 	.main-container {
