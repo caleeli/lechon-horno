@@ -24,7 +24,9 @@
 </div>
 
 <div>
-    entrega: <b>{!next_friday ? "..." : dayjs(next_friday).format('dddd DD-MMMM')}</b><br>
+    {#if next_friday}
+    entrega: <b>{dayjs(next_friday).format('dddd DD-MMMM')}</b><br>
+    {/if}
     reserva hasta: <b>{!presale_limit ? "..." : dayjs(presale_limit).format('dddd DD-MMMM')}</b>
 </div>
 
